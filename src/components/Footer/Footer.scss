@@ -1,0 +1,123 @@
+.main-footer {
+  padding-top: 2rem !important;
+  padding-bottom: 0 !important;
+  background-color: rgb(32, 32, 32);
+  color: rgba(255, 255, 255, 0.947);
+
+  ::selection {
+    background-color: #fff;
+    color: rgb(32, 32, 32);
+  }
+
+  .top {
+    padding-bottom: 1.5rem;
+
+    .brand {
+      h2 {
+        font-family: ButlerStencil;
+        letter-spacing: v(letter-spacing-p);
+        margin-bottom: 0.5rem;
+      }
+
+      p {
+        @include clamp(4);
+        line-height: v(line-height);
+        letter-spacing: v(letter-spacing-p);
+        max-width: 16rem;
+        font-size: 0.65rem;
+        text-align: justify;
+      }
+
+      .social {
+        margin-top: 1rem;
+
+        svg {
+          cursor: pointer;
+        }
+      }
+
+      .contact {
+        margin-top: 2rem;
+
+        h3 {
+          margin-bottom: 0.4rem;
+          font-weight: 400;
+        }
+
+        p {
+          margin-top: 0.25rem;
+          opacity: 0.8;
+          cursor: pointer;
+          letter-spacing: v(letter-spacing);
+          font-weight: 200;
+
+          &:hover {
+            opacity: 1;
+          }
+        }
+      }
+    }
+
+    .links-container {
+      flex-shrink: 0;
+
+      .links {
+        h4 {
+          letter-spacing: v(letter-spacing);
+          font-weight: 300;
+        }
+
+        ul {
+          list-style: none;
+
+          li {
+            font-weight: 200;
+            font-size: 0.85rem;
+            margin-top: 0.2rem;
+            cursor: pointer;
+            letter-spacing: v(letter-spacing-p);
+            opacity: 0.65;
+            transition: 0.025s v(bezier) all;
+
+            &:hover {
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+
+    .subscribe {
+      flex-grow: 1;
+      max-width: 550px;
+
+      h4 {
+        font-size: 1.4rem;
+        font-weight: 500;
+        letter-spacing: v(letter-spacing-p);
+      }
+
+      p {
+        font-size: 0.75rem;
+        line-height: v(line-height);
+        letter-spacing: v(letter-spacing-p);
+        font-weight: 300;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+
+  .bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.075);
+    padding: 0.5rem 0;
+
+    span {
+      font-size: 0.5rem;
+      font-weight: 300;
+
+      img {
+        height: 0.65rem;
+      }
+    }
+  }
+}

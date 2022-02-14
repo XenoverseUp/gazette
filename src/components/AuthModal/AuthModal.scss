@@ -1,0 +1,105 @@
+.auth-modal {
+  position: fixed;
+  @include inset(0);
+  width: 5rem;
+  height: 5rem;
+  background-color: #fff;
+  z-index: 398;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.425s v(bezier) all;
+  margin: auto;
+  width: 100%;
+  max-width: 450px;
+  height: 100vh;
+  max-height: 600px;
+  border-radius: 8px;
+  box-shadow: v(box-shadow);
+  overflow: hidden;
+  pointer-events: none;
+
+  &.visible {
+    pointer-events: all;
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .close {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    cursor: pointer;
+    z-index: 2;
+  }
+
+  form {
+    position: absolute;
+    @include inset(0);
+    padding: 1.5rem;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(10px);
+    pointer-events: none;
+    transition: 0.4s v(bezier) all;
+
+    &.visible {
+      opacity: 1;
+      transform: none;
+      pointer-events: all;
+    }
+
+    h3 {
+      font-size: 2rem;
+      letter-spacing: v(letter-spacing-p);
+      font-family: ButlerStencil;
+      font-weight: 500;
+    }
+
+    p {
+      letter-spacing: v(letter-spacing-p);
+      line-height: v(line-height);
+      font-weight: 300;
+      font-size: 0.8rem;
+      max-width: 400px;
+    }
+
+    .inputs {
+      max-width: 300px;
+
+      .input {
+        margin-bottom: 1rem;
+      }
+
+      .submit-button {
+        margin-top: 1rem;
+      }
+
+      & > span {
+        font-size: 0.75rem;
+        margin-top: 0.65em;
+        margin-bottom: 0.5em;
+        opacity: 0.5;
+      }
+
+      .google-sign-in {
+        font-weight: 400;
+        cursor: pointer;
+      }
+    }
+
+    .already {
+      font-size: 0.7rem;
+
+      span {
+        margin-left: 0.25em;
+        font-weight: 500;
+        transition: 0.15s v(bezier) all;
+        cursor: pointer;
+
+        &:hover {
+          color: rgb(v(accent-color));
+        }
+      }
+    }
+  }
+}

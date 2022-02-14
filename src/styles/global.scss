@@ -1,0 +1,62 @@
+@import "./utils/fluidType";
+@import "./utils/borders";
+@import "./utils/animations";
+@import "./utils/componentUtils";
+@import "./routes";
+
+$min_width: 320px;
+$max_width: 1800px;
+$min_font: 18px;
+$max_font: 24px;
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Butler;
+  // cursor: none;
+}
+
+img {
+  user-select: none;
+}
+
+:root,
+::before,
+::after {
+  --bezier: cubic-bezier(0.71, 0.01, 0.23, 0.99);
+  --max-width: 2000px; // 1280px
+  --horizontal-padding: 2rem;
+  --line-height: 1.35;
+  --letter-spacing: 0.05em;
+  --letter-spacing-p: 0.025em;
+  --body-background-color: #ffeee6;
+  --border-radius: 5px;
+  --accent-color: 255, 144, 116;
+  --box-shadow: 0 1.1px 1.3px rgba(0, 0, 0, 0.02),
+    0 2.7px 3.2px rgba(0, 0, 0, 0.028), 0 5px 6px rgba(0, 0, 0, 0.035),
+    0 8.9px 10.7px rgba(0, 0, 0, 0.042), 0 16.7px 20.1px rgba(0, 0, 0, 0.05),
+    0 40px 48px rgba(0, 0, 0, 0.07);
+}
+
+::selection {
+  background-color: rgba(255, 144, 116, 0.651);
+  // color: #fff;
+}
+
+html {
+  @include fluid-type($min_width, $max_width, $min_font, $max_font);
+  background: v(body-background-color);
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}

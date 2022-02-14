@@ -1,0 +1,55 @@
+.vintage-button {
+  position: relative;
+  width: max-content;
+  cursor: pointer;
+  user-select: none;
+
+  span {
+    @include inset(0);
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.75);
+    border: 2px solid #000;
+    pointer-events: none;
+  }
+
+  button {
+    border: none;
+    outline: none;
+    font-size: 0.75rem;
+    background-color: #fff;
+    padding: 0.35em 1.25em;
+    border: 2px solid #000;
+    transition: 0.25s v(bezier) transform;
+    pointer-events: none;
+    transform: translate(-0.25em, -0.25em);
+    z-index: 1;
+  }
+
+  &:hover {
+    button {
+      transform: translate(-0.4em, -0.4em);
+    }
+  }
+
+  &:active {
+    button {
+      transform: none;
+    }
+  }
+
+  &.inverted {
+    color: #fff;
+
+    span {
+      background-color: rgba(51, 51, 51, 0.479);
+      border-color: rgba(116, 116, 116, 0.336);
+      z-index: initial;
+    }
+
+    button {
+      color: inherit;
+      background-color: rgb(82, 82, 82);
+      border-color: rgba(255, 255, 255, 0.05);
+    }
+  }
+}

@@ -1,0 +1,34 @@
+.wrapper {
+  width: 100%;
+  max-width: var(--max-width);
+  padding-left: var(--horizontal-padding);
+  padding-right: var(--horizontal-padding);
+  margin: 0 auto;
+}
+
+.link-reset {
+  text-decoration: none;
+  color: unset;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 398;
+  pointer-events: none;
+  background-color: #000;
+  opacity: 0;
+  transition: 0.425s v(bezier) all;
+
+  &.white {
+    background-color: #fff;
+  }
+
+  &.visible {
+    pointer-events: all;
+    opacity: 0.5;
+  }
+}

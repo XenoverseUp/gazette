@@ -1,0 +1,80 @@
+.input {
+  position: relative;
+  user-select: none;
+
+  .eye {
+    position: absolute;
+    right: 0.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+
+  input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    padding: 0.75em 0.25em;
+    padding-bottom: 0.5em;
+    border-bottom: 1px solid #000;
+    font-size: 0.75rem;
+    letter-spacing: v(letter-spacing-p);
+
+    &:focus ~ label,
+    &:valid ~ label {
+      transform: translate(0rem, -165%);
+      font-size: 0.6rem;
+      opacity: 0.9;
+    }
+
+    &:focus ~ label {
+      opacity: 1;
+    }
+  }
+
+  label {
+    position: absolute;
+    left: 0.25em;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.75rem;
+    pointer-events: none;
+    transition: 0.2s v(bezier) all;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    margin: 0 auto;
+    width: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1.5px;
+    z-index: 2;
+    background-color: rgb(0, 0, 0);
+    transition: 0.2s v(bezier) all;
+  }
+
+  &:focus-within::after {
+    width: 100%;
+  }
+
+  &.inverted {
+    label,
+    input {
+      border-color: rgba(255, 255, 255, 0.568);
+      color: #fff;
+
+      &:focus ~ label,
+      &:valid ~ label {
+        opacity: 0.75;
+      }
+    }
+
+    &::after {
+      background-color: #fff;
+    }
+  }
+}

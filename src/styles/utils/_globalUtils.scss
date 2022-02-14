@@ -1,0 +1,47 @@
+@function v($propertyName: "", $argsFallbacks...) {
+  $fallbacksNb: length($argsFallbacks);
+
+  @if $fallbacksNb < 1 {
+    @return var(--#{$propertyName});
+  }
+
+  $fallbacks: nth($argsFallbacks, $fallbacksNb);
+
+  @if $fallbacksNb > 1 {
+    @for $index from $fallbacksNb - 1 through 1 {
+      $fallbacks: var(--#{nth($argsFallbacks, $index)}, #{$fallbacks});
+    }
+  }
+
+  @return var(--#{$propertyName}, $fallbacks);
+}
+
+@mixin single-media($propertyName, $default, $args...) {
+  #{$propertyName}: #{$default};
+
+  @each $breakpoint, $value in $args {
+    @media screen and (max-width: #{$breakpoint}px ) {
+      #{$propertyName}: #{$value};
+    }
+  }
+}
+
+@mixin media($breakpoint) {
+  @media screen and (max-width: #{$breakpoint}px) {
+    @content;
+  }
+}
+
+@mixin clamp($clamp) {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: $clamp;
+  -webkit-box-orient: vertical;
+}
+
+@mixin inset($value: 0) {
+  top: $value;
+  left: $value;
+  right: $value;
+  bottom: $value;
+}
